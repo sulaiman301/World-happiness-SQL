@@ -9,10 +9,10 @@ The happiness scores and rankings in the report are derived from the Gallup Worl
 
 ## The report analyzes five key factors contributing to happiness:
 
-Economy 
-Health
-Freedom
-Family
+Economy, 
+Health,
+Freedom,
+Family &
 Absence of corruption
 
 These factors are compared to hypothetical values in Dystopia (the world’s lowest national averages) to understand why some countries rank higher than others.
