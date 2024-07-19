@@ -1,0 +1,131 @@
+## Extracting and cleaning of data from kaggle 
+import pandas as pd 
+df=pd.read_csv("Data\Raw data\happiness_indicators.csv")
+columns =["Country","Family","Health..Life.Expectancy.","Freedom","Economy..GDP.per.Capita.","Trust..Government.Corruption."]
+
+
+filter_df=df[columns]
+unique_countries = filter_df['Country'].unique()
+country_df = pd.DataFrame(list(country_ids.items()), columns=['Country', 'ID'])
+
+filter_df['Country_ID'] = filter_df['Country'].map(country_ids)
+filter_df.drop('Country', axis=1, inplace=True)
+filter_df.to_csv("Data\clean Data\happiness_indicators.csv",index=False)
+country_df.to_csv("Data\clean Data\Countries.csv",index=False)
+
+
+## Exploratory Analysis
+pip install SQLAlchemy
+from sqlalchemy import create_engine
+import pandas as pd
+
+# Replace with your actual database credentials
+user = 'root'
+password = 'Chubas#29912'
+host = '127.0.0.1'
+port = '3306'
+database = 'world_happiness'
+
+# Create an engine instance
+engine = create_engine(f'mysql+pymysql://{user}:{password}@{host}/{database}')
+
+# Connect to the database
+connection = engine.connect()
+
+# Define the SQL query
+
+join_query = """  
+SELECT id,name,economy,family,freedom,health,corruption
+    FROM happiness_indicators hi
+JOIN countries ON countries.id= hi.country_id
+;"""
+Join_df = pd.read_sql(join_query, con=engine)
+Join_df
+Join_df
+
+Join_df = Join_df.rename(columns={'id': 'country_id', 'name': 'country_name'})
+
+Join_df
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+## Correlation Heatmap
+plt.figure(figsize=(10, 8))
+sns.heatmap(Join_df .corr(), annot=True, cmap='coolwarm')
+plt.title('Correlation Heatmap of Join_df')
+plt.show()
+
+average_scores = Join_df.mean()
+average_scores = average_scores.drop('country_id')
+print(average_scores)
+
+plt.figure(figsize=(10, 6))
+average_scores.plot(kind='bar')
+plt.title('Average Scores of Happiness Indicators')
+plt.ylabel('Average Score')
+plt.show()
+
+ # Plot pie chart for average scores
+plt.figure(figsize=(10, 8))
+plt.pie(average_scores, labels=average_scores.index, autopct='%1.1f%%', startangle=140, colors=plt.cm.Paired.colors)
+plt.title('Distribution of Average Scores of Happiness Indicators ')
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x='economy', y='country_id', data=Join_df)
+plt.title('Economy vs country_id')
+plt.xlabel('Economy Score')
+plt.ylabel('World Happiness Score')
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x='family', y='country_id', data=Join_df)
+plt.title('family vs country_id')
+plt.xlabel('Family Score')
+plt.ylabel('World Happiness Score')
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x='freedom', y='country_id', data=Join_df)
+plt.title('freedom vs country_id')
+plt.xlabel('freedom Score')
+plt.ylabel('World Happiness Score')
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x='health', y='country_id', data=Join_df)
+plt.title('health vs country_id')
+plt.xlabel('health Score')
+plt.ylabel('World Happiness Score')
+plt.show()
+
+# Scatter Plot
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x='corruption', y='country_id', data=Join_df)
+plt.title('corruption vs country_id')
+plt.xlabel('corruption Score')
+plt.ylabel('World Happiness Score')
+plt.show()
+
+import plotly.express as px
+
+join_df = px.data.medals_long()
+
+fig = px.bar(long_df, x="nation", y="count", color="medal", title="Long-Form Input")
+fig.show()
+
+
+# Plot box plots for each numerical column
+plt.figure(figsize=(10, 8))
+sns.boxplot(data=Join_df.drop(columns=['country_id']))
+plt.xticks(rotation=90)
+plt.show()
+
+
+
+
