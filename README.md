@@ -26,12 +26,3 @@ These factors are compared to hypothetical values in Dystopia (the world’s low
 Usage
 The reports are widely used by governments, organizations, and civil society to inform policy-making decisions. Experts from various fields contribute insights on how well-being measurements can assess national progress.
 
-## Key Questions to Explore
-Top Rankings: Which countries or regions consistently rank highest in overall happiness and in each of the six contributing factors?
-Changes Over Time: How did country ranks or scores change between the 2015-2016 and 2016-2017 reports?
-Significant Changes: Did any country experience a notable increase or decrease in happiness levels?
-Data Sources
-Gallup World Poll
-National statistics agencies
-Further Reading
-For detailed insights and specific findings from each report, refer to the World Happiness Report publications and associated analyses.
